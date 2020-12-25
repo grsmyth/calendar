@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import Head from 'next/head';
+import './home.scss'
 
-export default function Home({ currentDate }) {
-  const [value, onChange] = useState(new Date(currentDate));
+export default function Home() {
+  const [value, onChange] = useState(new Date());
 
   function createTodo(data) {
     return fetch('/.netlify/functions/getDay', {
@@ -20,7 +21,7 @@ export default function Home({ currentDate }) {
   };
 
   function tileClassName({ date, view }) {
-    const current = new Date(currentDate);
+    const current = new Date();
 
     if (date.toDateString() === current.toDateString()) {
       return 'current';
@@ -34,7 +35,7 @@ export default function Home({ currentDate }) {
   }
 
   const onClickDay = (value, event) => {
-    console.log(createTodo(myTodo));
+    createTodo(myTodo);
   };
 
   return (
