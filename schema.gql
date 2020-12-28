@@ -1,0 +1,11 @@
+type Day {
+   date: String!
+   blood: Int
+   anxiety: Int
+   heart: Int
+}
+
+type Query {
+   allDays: [Day!]
+   dayByDate(date: String!): Day!
+}

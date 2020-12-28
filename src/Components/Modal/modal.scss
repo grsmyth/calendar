@@ -1,0 +1,26 @@
+.modalContainer {
+  height: 100%;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+
+  .textArea,
+  .buttonArea {
+    flex: 1;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+
+    #notes {
+      flex: 1;
+    }
+    .submitButton {
+      height: 40px;
+      min-width: 120px;
+    }
+    .flex {
+      flex: 1;
+    }
+  }
+}

@@ -11,6 +11,33 @@
   align-items: stretch;
   height: 100%;
 
+  .displayModalContainer {
+    position: absolute;
+    background-color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid black;
+    width: 100vw;
+    max-width: 800px;
+
+    h1 {
+      text-align: center;
+    }
+
+    .closeButton {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      height: 40px;
+      width: 40px;
+      font-size: 20px;
+    }
+  }
+
   .react-calendar {
     margin: 0 auto;
     height: 100%;
@@ -44,12 +71,45 @@
         // height: 100%;
         flex: 1;
       }
+
+      &__weekdays {
+        &__weekday {
+          text-align: center;
+        }
+      }
     }
 
     &__tile {
       flex: 1;
       background-color: transparent;
       border: none;
+      border: 1px solid grey;
+      position: relative;
+
+      .tileContainerTitle {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        font-size: large;
+        background-color: white;
+        padding: 5px;
+        border-top: 2px solid grey;
+        border-left: 2px solid grey;
+      }
+
+      .tileContainer {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        &__sub {
+          flex: 1;
+        }
+      }
     }
 
     .current {

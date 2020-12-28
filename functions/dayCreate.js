@@ -11,14 +11,14 @@ const client = new faunadb.Client({
 exports.handler = (event, context, callback) => {
   /* parse the string body into a useable JS object */
   const data = JSON.parse(event.body);
-  console.log("Function `todo-create` invoked", data);
+  console.log("Function `day-create` invoked", data);
   console.log(process.env.FAUNADB_SECRET);
-  const todoItem = {
-    data: data,
+  const day = {
+    data,
   };
   /* construct the fauna query */
   return client
-    .query(q.Create(q.Ref("classes/todos"), todoItem))
+    .query(q.Create(q.Collection("Day"), day))
     .then((response) => {
       console.log("success", response);
       /* Success! return the response with statusCode 200 */
