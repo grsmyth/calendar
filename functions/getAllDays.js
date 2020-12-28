@@ -6,7 +6,7 @@ const client = new faunadb.Client({
 });
 
 exports.handler = (event, context, callback) => {
-  console.log('Function `getAllDays` invoked', process.env.FAUNADB_SECRET);
+  console.log('Function `getAllDays` invoked');
   return client
     .query(q.Paginate(q.Match(q.Ref('indexes/allDays'))))
     .then((response) => {

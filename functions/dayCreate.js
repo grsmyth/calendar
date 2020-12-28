@@ -12,7 +12,6 @@ exports.handler = (event, context, callback) => {
   /* parse the string body into a useable JS object */
   const data = JSON.parse(event.body);
   console.log("Function `day-create` invoked", data);
-  console.log(process.env.FAUNADB_SECRET);
   const day = {
     data,
   };
