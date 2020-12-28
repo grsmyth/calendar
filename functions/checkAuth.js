@@ -8,12 +8,12 @@ exports.handler = (event, context, callback) => {
   if (dev || secret === data.secret) {
     return callback(null, {
       statusCode: 200,
-      body: true,
+      body: JSON.stringify(true),
     });
   }
 
   return callback(null, {
     statusCode: 401,
-    body: false,
+    body: JSON.stringify(false),
   });
 };
