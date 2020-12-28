@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Home from './Home';
 import './styles/App.scss';
 
@@ -16,7 +16,6 @@ function App() {
       method: 'POST',
     }).then((response) => {
       setAuth(response.status === 200);
-      console.log('returned', response.status);
       return response.json();
     });
   };
