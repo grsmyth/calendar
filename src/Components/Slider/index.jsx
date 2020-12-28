@@ -89,5 +89,5 @@ Slider.propTypes = {
   label: PropTypes.string.isRequired,
   option: PropTypes.string.isRequired,
   update: PropTypes.func.isRequired,
-  startValue: PropTypes.number.isRequired,
+  startValue: PropTypes.any.isRequired,
 };

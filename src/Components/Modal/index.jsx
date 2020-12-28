@@ -36,7 +36,11 @@ function Modal({ submit, data }) {
 
 export default Modal;
 
+Modal.defaultProps = {
+  data: undefined,
+};
+
 Modal.propTypes = {
   submit: PropTypes.func.isRequired,
-  data: PropTypes.any.isRequired,
+  data: PropTypes.any,
 };
