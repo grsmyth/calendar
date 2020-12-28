@@ -5,6 +5,7 @@
     "prettier/prettier": ["warn"],
     "no-unused-vars": "warn",
     "react/prop-types": "warn",
-    "import/order": "warn"
+    "import/order": "warn",
+    "react/forbid-prop-types": "off"
   }
 }

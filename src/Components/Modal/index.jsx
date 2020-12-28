@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Slider from '../Slider';
 import './modal.scss';
 
@@ -34,3 +35,8 @@ function Modal({ submit, data }) {
 }
 
 export default Modal;
+
+Modal.propTypes = {
+  submit: PropTypes.func.isRequired,
+  data: PropTypes.any.isRequired,
+};

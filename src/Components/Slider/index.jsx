@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { returnRed, returnBlue, returnBlack } from '../../utils';
 import './slider.scss';
 
@@ -83,3 +84,10 @@ function Slider({ label, option, update, startValue }) {
 }
 
 export default Slider;
+
+Slider.propTypes = {
+  label: PropTypes.string.isRequired,
+  option: PropTypes.string.isRequired,
+  update: PropTypes.func.isRequired,
+  startValue: PropTypes.number.isRequired,
+};
