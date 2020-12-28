@@ -37,7 +37,7 @@ export default function Home() {
   // eslint-disable-next-line no-unused-vars
   const onClickDay = (dayValue, dayEvent) => {
     const today = hasDay(dayValue);
-    if (today) updateTodaysData(today.data);
+    updateTodaysData(today ? today.data : undefined);
     onChangeDisplayModal(true);
   };
 
