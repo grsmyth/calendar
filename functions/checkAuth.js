@@ -1,7 +1,7 @@
 exports.handler = (event, context, callback) => {
   /* parse the string body into a useable JS object */
   const data = JSON.parse(event.body);
-  console.log('Function `checkAuth` invoked', data);
+  console.log('Function `checkAuth` invoked', data, process.env);
   const secret = process.env.AUTH_SECRET;
   const dev = process.env.IS_DEV === 'true';
 
