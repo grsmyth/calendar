@@ -81,6 +81,7 @@ export default function Home() {
     const red = day && day.data.blood ? returnRGB(returnRed(day.data.blood)) : 'white';
     const blue = day && day.data.anxiety ? returnRGB(returnBlue(day.data.anxiety)) : 'white';
     const black = day && day.data.heart ? returnRGB(returnBlack(day.data.heart)) : 'white';
+    const hasNotes = day && day.data.notes;
     return (
       <>
         <div className="tileContainer">
@@ -89,6 +90,7 @@ export default function Home() {
           <div style={{ backgroundColor: black }} className="tileContainer__sub tileContainerH" />
         </div>
         <div className="tileContainerTitle">{date.getDate()}</div>
+        {hasNotes && <div className="tileContainerNotes">i</div>}
       </>
     );
   };
