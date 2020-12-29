@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { withCookies, Cookies } from 'react-cookie';
+import { instanceOf } from 'prop-types';
 import Home from './Home';
 import './styles/App.scss';
 
-function App() {
+function App({ cookies }) {
   const [auth, setAuth] = useState(false);
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState(cookies.get('goofy') || '');
 
   const tryLogin = () => {
     const data = {
@@ -16,9 +18,14 @@ function App() {
       method: 'POST',
     }).then((response) => {
       setAuth(response.status === 200);
+      cookies.set('goofy', password, { path: '/' });
       return response.json();
     });
   };
+
+  useEffect(() => {
+    if (password !== '') tryLogin();
+  }, []);
 
   const login = () => (
     <div className="loginContainer">
@@ -31,4 +38,8 @@ function App() {
   return auth ? <Home /> : login();
 }
 
-export default App;
+export default withCookies(App);
+
+App.propTypes = {
+  cookies: instanceOf(Cookies).isRequired,
+};
