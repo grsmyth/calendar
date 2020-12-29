@@ -10,7 +10,7 @@ module.exports = {
   },
 };
 
-if (process.env.IS_DEV) {
+if (process.env.IS_DEV === 'true') {
   module.exports.plugins.push(
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(dotenv.parsed),
