@@ -8,10 +8,10 @@ const client = new faunadb.Client({
 exports.handler = (event, context, callback) => {
   console.log('Function `getAllDays` invoked');
   return client
-    .query(q.Paginate(q.Match(q.Ref('indexes/allDays'))))
+    .query(q.Paginate(q.Match(q.Ref('indexes/allDays')), { size: 999 }))
     .then((response) => {
       const todoRefs = response.data;
-      console.log('Days refs', todoRefs);
+      // console.log('Days refs', todoRefs);
       console.log(`${todoRefs.length} Days found`);
       // create new query out of todo refs. http://bit.ly/2LG3MLg
       const getAllTodoDataQuery = todoRefs.map((ref) => q.Get(ref));
